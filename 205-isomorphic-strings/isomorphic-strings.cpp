@@ -8,8 +8,8 @@ public:
         for(int i =0;i<len;i++)
         {
             if(indexs[s[i]] != indext[t[i]]) return false;
-            indexs[s[i]] = i+1;
-            indext[t[i]] = i+1;
+            indexs[s[i]] =i+1;
+            indext[t[i]] =i+1;
         }
         return true;
     }
