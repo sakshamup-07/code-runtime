@@ -10,16 +10,13 @@
  */
 class Solution {
 public:
-    int greatestD(int x , int y)
-    {
-        int ans=1;
-        for(int i =1;i<=min(x , y) ;i++)
-        {
-            if(x%i ==0 && y%i ==0) ans =i;
-
-        }
-        return ans;
+    int greatestD(int x, int y) {
+    if (y == 0) {
+        return x;
     }
+    return greatestD(y, x % y);
+}
+
     ListNode* insertGreatestCommonDivisors(ListNode* head) {
         if(head== NULL) return head;
         ListNode* temp = head;
