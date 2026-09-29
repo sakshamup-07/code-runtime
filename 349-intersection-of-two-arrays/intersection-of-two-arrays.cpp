@@ -1,30 +1,28 @@
 class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
-        vector<int> ans;
+        int m = nums1.size();
+        int n = nums2.size();
 
-        sort(nums1.begin(), nums1.end());
-        sort(nums2.begin(), nums2.end());
+        vector<int> result;
 
-        int i = 0, j = 0;
+        unordered_map<int, int> mp1;
+        unordered_map<int, int> mp2;
 
-        while (i < nums1.size() && j < nums2.size()) {
+        for(auto it : nums1) {
+            mp1[it]++;
+        }
 
-            if (nums1[i] == nums2[j] &&
-                (ans.empty() || ans.back() != nums1[i])) {
+        for(auto it : nums2) {
+            mp2[it]++;
+        }
 
-                ans.push_back(nums1[i]);
-                i++;
-                j++;
-            }
-            else if (nums1[i] > nums2[j]) {
-                j++;
-            }
-            else {
-                i++;
+        for(auto it : mp1) {
+            if(mp2.find(it.first) != mp2.end()) {
+                result.push_back(it.first);
             }
         }
 
-        return ans;
+        return result;
     }
 };
