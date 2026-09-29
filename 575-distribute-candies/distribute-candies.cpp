@@ -1,18 +1,9 @@
 class Solution {
 public:
-    int distributeCandies(vector<int>& candyType) {
-        int n = candyType.size();
-
-        set<int> st;
-
-        for(int i = 0; i < n; i++) {
-            st.insert(candyType[i]);
-        }
-
-        int m = st.size();
-
-        int answer = min(m, n / 2);
-
-        return answer;
+    int distributeCandies(vector<int>& fu) {
+        int n = fu.size();
+        set<int> st(fu.begin() , fu.end());
+        int k = st.size();
+        return min(k , n/2);
     }
 };
