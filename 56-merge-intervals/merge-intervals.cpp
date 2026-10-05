@@ -1,6 +1,10 @@
 class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& nums) {
+          ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+
+        if (nums.empty()) return {};
         sort(nums.begin() , nums.end());
         vector<vector<int>> result;
         int n = nums.size();
