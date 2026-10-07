@@ -1,31 +1,16 @@
 class Solution {
 public:
     vector<int> pivotArray(vector<int>& nums, int pivot) {
-      stack <int> st;
-      vector<int> ans;
-      int n = nums.size();
-      for(int i =0;i<n;i++)
-      {
-        if(nums[i]<pivot)
+        vector<int> less , equal , greater;
+        int n = nums.size();
+        for( auto& it : nums)
         {
-            st.push(nums[i]);
+            if(it<pivot) less.push_back(it);
+            else if(it>pivot) greater.emplace_back(it);
+            else equal.push_back(it);
         }
-      }  
-      for(int i =0;i<n;i++)
-      {
-        if(nums[i]==pivot) st.push(nums[i]);
-      }
-      for(int i =0;i<n;i++)
-      {
-        if(nums[i] > pivot) st.push(nums[i]);
-      }
-      for(int i =0;i<n;i++)
-      {
-        ans.emplace_back(st.top());
-        st.pop();
-      }
-      reverse(ans.begin() , ans.end());
-      return ans;
-
+        less.insert(less.end() , equal.begin() , equal.end());
+        less.insert(less.end() , greater.begin() , greater.end());
+        return less;
     }
 };
