@@ -7,14 +7,13 @@ public:
     {
         int ld = n%10;
         if(ld==digit) cnt++;
-        ld=0;
         n=n/10;
     }
     return cnt;
  }
     int countDigitOccurrences(vector<int>& nums, int digit) {
         int an=0;
-        for(auto& it : nums)
+        for(const auto& it : nums)
         {
            an+=extractor(it , digit);
         }
