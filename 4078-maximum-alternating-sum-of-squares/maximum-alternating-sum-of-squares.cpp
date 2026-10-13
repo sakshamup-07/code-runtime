@@ -11,11 +11,11 @@ public:
         long long sum = 0;
         for(auto it = mid ; it != nums.end() ; it++)
         {
-          sum += (long long)(*it) * (*it);
+          sum += (*it) * (*it);
         }
         for(auto it = nums.begin() ; it != mid ; it++)
         {
-          sum -= (long long)(*it) * (*it);
+          sum -= (*it) * (*it);
         }
         return sum;
     }
