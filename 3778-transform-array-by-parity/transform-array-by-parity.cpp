@@ -1,12 +1,16 @@
 class Solution {
 public:
     vector<int> transformArray(vector<int>& nums) {
+        int zr=0;
         for(auto& it : nums)
         {
-            if(it%2==0) it =0;
-            else it = 1;
+            if(it%2==0) zr++;
         }
-        sort(nums.begin() , nums.end());
+        for(int i = 0 ;i<nums.size();i++)
+        {
+            if(i<zr) nums[i]=0;
+            else nums[i]=1;
+        }
         return nums;
     }
 };
