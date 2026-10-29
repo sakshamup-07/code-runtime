@@ -15,8 +15,7 @@ public:
         int mini = 10000;
         for(int i = 0 ; i<nums.size() ; i++)
         {
-            nums[i]=digiex(nums[i]);
-            mini = min(mini , nums[i]);
+            mini = min(mini , digiex(nums[i]));
         }
         return mini;
     }
