@@ -13,9 +13,9 @@ public:
     }
     int minElement(vector<int>& nums) {
         int mini = 10000;
-        for(int i = 0 ; i<nums.size() ; i++)
+        for(auto equinox : nums)
         {
-            mini = min(mini , digiex(nums[i]));
+            mini = min(mini , digiex(equinox));
         }
         return mini;
     }
